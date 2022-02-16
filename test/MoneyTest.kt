@@ -10,5 +10,7 @@ class MoneyTest {
 
         assertEquals(Franc(5), Franc(5))
         assertNotEquals(Franc(5), Franc(6))
+
+        assertNotEquals(Franc(5), Dollar(5))
     }
 }
