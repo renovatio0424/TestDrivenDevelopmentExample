@@ -1,13 +1,20 @@
-abstract class Money(
+open class Money(
     var amount: Int,
     private val currency: String
 ) {
 
-    abstract fun times(multiplier: Int): Money
+    fun times(multiplier: Int): Money {
+        return Money(amount * multiplier, currency)
+    }
+
     fun currency(): String = currency
 
     override fun equals(other: Any?): Boolean {
-        return amount == (other as Money).amount && javaClass == other.javaClass
+        return amount == (other as Money).amount && currency == other.currency()
+    }
+
+    override fun toString(): String {
+        return "$amount $currency"
     }
 
     companion object {
