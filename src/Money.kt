@@ -1,6 +1,10 @@
-abstract class Money(var amount: Int) {
+abstract class Money(
+    var amount: Int,
+    private val currency: String
+) {
 
     abstract fun times(multiplier: Int): Money
+    fun currency(): String = currency
 
     override fun equals(other: Any?): Boolean {
         return amount == (other as Money).amount && javaClass == other.javaClass
