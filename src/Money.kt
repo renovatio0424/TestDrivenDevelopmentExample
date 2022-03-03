@@ -1,7 +1,7 @@
 open class Money(
     var amount: Int,
     private val currency: String
-) {
+) : Expression {
 
     fun times(multiplier: Int): Money {
         return Money(amount * multiplier, currency)
@@ -15,6 +15,10 @@ open class Money(
 
     override fun toString(): String {
         return "$amount $currency"
+    }
+
+    fun plus(addend: Money): Expression {
+        return Money(amount + addend.amount, currency)
     }
 
     companion object {
