@@ -7,10 +7,6 @@ class MoneyTest {
     fun testEquality() {
         assertEquals(Money.dollar(5), Money.dollar(5))
         assertNotEquals(Money.dollar(5), Money.dollar(6))
-
-        assertEquals(Money.franc(5), Money.franc(5))
-        assertNotEquals(Money.franc(5), Money.franc(6))
-
         assertNotEquals(Money.franc(5), Money.dollar(5))
     }
 
@@ -21,8 +17,9 @@ class MoneyTest {
     }
 
     @Test
-    fun testDifferentClassEquality() {
-        assertEquals(Money(10, "CHF"), Franc(10, "CHF"))
+    fun testMultiplication() {
+        val five: Money = Money.dollar(5)
+        assertEquals(Money.dollar(10), five.times(2))
+        assertEquals(Money.dollar(15), five.times(3))
     }
-
 }
